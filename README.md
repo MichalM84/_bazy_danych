@@ -25,11 +25,29 @@ Właściciel repozytorium: Michał Malewicz
 
 #Przykładowy format zapisywania rozwiązań
 
-## Rozwiązania zadań lab1, część 1
+## Rozwiązania zadań lab 1, część 1
 
 **Zadanie 1**
 ```sql
+SELECT * FROM osoba;
+```
 
-kod
+**Zadanie 2**
+```sql
+SELECT * FROM osoba;
+```
 
+...
+
+lub
+
+**Zadania część 1**
+```sql
+# zadanie 1
+SELECT * FROM osoba;
+
+# zadanie 2
+SELECT * FROM osoba;
+
+...
 ```
