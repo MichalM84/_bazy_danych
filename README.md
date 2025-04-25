@@ -47,6 +47,13 @@ VALUES
 **zadanie 5
 
 ```
+ALTER TABLE pracownik 
+MODIFY stanowisko ENUM('sprzedawca', 'magazynier', 'księgowa') DEFAULT 'sprzedawca';
+```
+
+**zadanie 6
+
+```
 
 ```
 
