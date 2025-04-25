@@ -1,4 +1,4 @@
-# _bazy_danych
+# zadania_bazy_danych
 
 Właściciel repozytorium: Michał Malewicz
 
@@ -52,6 +52,17 @@ MODIFY stanowisko ENUM('sprzedawca', 'magazynier', 'księgowa') DEFAULT 'sprzeda
 ```
 
 **zadanie 6
+
+```
+ALTER TABLE pracownik
+ADD COLUMN pensja DECIMAL(7,2);
+
+update pracownik set pensja = 5999.99 where id = 1;
+update pracownik set pensja = 7000.00 where id = 2;
+update pracownik set pensja = 5000.50 where id = 3;
+```
+
+**zadanie 7
 
 ```
 
