@@ -36,7 +36,7 @@ nazwa varchar(255) not null
 
 **zadanie 4
 
-```
+```sql
 INSERT INTO dział (nazwa) 
 VALUES
 ('sprzedaż'),
@@ -46,14 +46,14 @@ VALUES
 
 **zadanie 5
 
-```
+```sql
 ALTER TABLE pracownik 
 MODIFY stanowisko ENUM('sprzedawca', 'magazynier', 'księgowa') DEFAULT 'sprzedawca';
 ```
 
 **zadanie 6
 
-```
+```sql
 ALTER TABLE pracownik
 ADD COLUMN pensja DECIMAL(7,2);
 
@@ -64,7 +64,7 @@ update pracownik set pensja = 5000.50 where id = 3;
 
 **zadanie 7
 
-```
+```sql
 
 ```
 
