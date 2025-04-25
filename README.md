@@ -73,5 +73,15 @@ ALTER TABLE pracownik RENAME COLUMN id TO id_pracownika;
 **zadanie 8
 
 ```sql
+DELETE FROM pracownik WHERE id_pracownika = 3;
+```
+
+## Rozwiązania zadań lab 1, część 2
+
+**zadanie 1
+
+```sql
 
 ```
+
+
