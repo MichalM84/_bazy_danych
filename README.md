@@ -65,6 +65,13 @@ update pracownik set pensja = 5000.50 where id = 3;
 **zadanie 7
 
 ```sql
-
+ALTER TABLE dział RENAME COLUMN nazwa TO nazwa_dzialu;
+ALTER TABLE dział RENAME COLUMN id TO id_dzialu;
+ALTER TABLE pracownik RENAME COLUMN id TO id_pracownika;
 ```
 
+**zadanie 8
+
+```sql
+
+```
