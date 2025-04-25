@@ -40,7 +40,11 @@ stanowisko enum('sprzedawca', 'magazynier', 'księgowa')
 
 **Zadanie 2**
 ```sql
-SELECT * FROM osoba;
+#zadanie 2
+INSERT INTO pracownik values
+(default, 'Jan', 'Kowalski', '1990-10-10', 'magazynier'),
+(default, 'Tomasz', 'Nowak', '1984-11-11', 'sprzedawca'),
+(default, 'Joanna', 'Machalica', '1985-05-28', 'księgowa');
 ```
 
 ...
