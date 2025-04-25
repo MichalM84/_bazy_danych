@@ -29,7 +29,13 @@ Właściciel repozytorium: Michał Malewicz
 
 **Zadanie 1**
 ```sql
-SELECT * FROM osoba;
+create table pracownik (
+id int auto_increment primary key,
+imie varchar(50) not null,
+nazwisko varchar(100) not null,
+data_urodzenia date, 
+stanowisko enum('sprzedawca', 'magazynier', 'księgowa')
+);
 ```
 
 **Zadanie 2**
@@ -39,15 +45,5 @@ SELECT * FROM osoba;
 
 ...
 
-lub
 
-**Zadania część 1**
-```sql
-# zadanie 1
-SELECT * FROM osoba;
 
-# zadanie 2
-SELECT * FROM osoba;
-
-...
-```
