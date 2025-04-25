@@ -30,11 +30,21 @@ INSERT INTO pracownik values
 ```sql
 create table dział (
 id int auto_increment primary key,
-imie varchar(255) not null
+nazwa varchar(255) not null
 );
 ```
 
 **zadanie 4
+
+```
+INSERT INTO dział (nazwa) 
+VALUES
+('sprzedaż'),
+('księgowość'),
+('magazyn');
+```
+
+**zadanie 5
 
 ```
 
