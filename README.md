@@ -28,7 +28,7 @@ INSERT INTO pracownik values
 
 **zadanie 3
 ```sql
-create table dział (
+create table dzial (
 id int auto_increment primary key,
 nazwa varchar(255) not null
 );
@@ -37,7 +37,7 @@ nazwa varchar(255) not null
 **zadanie 4
 
 ```sql
-INSERT INTO dział (nazwa) 
+INSERT INTO dzial (nazwa) 
 VALUES
 ('sprzedaż'),
 ('księgowość'),
@@ -65,8 +65,8 @@ update pracownik set pensja = 5000.50 where id = 3;
 **zadanie 7
 
 ```sql
-ALTER TABLE dział RENAME COLUMN nazwa TO nazwa_dzialu;
-ALTER TABLE dział RENAME COLUMN id TO id_dzialu;
+ALTER TABLE dzial RENAME COLUMN nazwa TO nazwa_dzialu;
+ALTER TABLE dzial RENAME COLUMN id TO id_dzialu;
 ALTER TABLE pracownik RENAME COLUMN id TO id_pracownika;
 ```
 
