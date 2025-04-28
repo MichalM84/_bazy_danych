@@ -26,7 +26,7 @@ INSERT INTO pracownik values
 (default, 'Joanna', 'Machalica', '1985-05-28', 'księgowa');
 ```
 
-** zadanie 3
+** zadanie 3**
 ```sql
 create table dzial (
 id int auto_increment primary key,
@@ -51,7 +51,7 @@ ALTER TABLE pracownik
 MODIFY stanowisko ENUM('sprzedawca', 'magazynier', 'księgowa') DEFAULT 'sprzedawca';
 ```
 
-**zadanie 6
+**zadanie 6**
 
 ```sql
 ALTER TABLE pracownik
