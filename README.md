@@ -6,7 +6,7 @@ Właściciel repozytorium: Michał Malewicz
 
 ## Rozwiązania zadań lab 1, część 1
 
-**Zadanie 1**
+** zadanie 1**
 ```sql
 create table pracownik (
 id int auto_increment primary key,
@@ -17,7 +17,7 @@ stanowisko enum('sprzedawca', 'magazynier', 'księgowa')
 );
 ```
 
-**Zadanie 2**
+** zadanie 2**
 ```sql
 #zadanie 2
 INSERT INTO pracownik values
@@ -26,7 +26,7 @@ INSERT INTO pracownik values
 (default, 'Joanna', 'Machalica', '1985-05-28', 'księgowa');
 ```
 
-**zadanie 3
+** zadanie 3
 ```sql
 create table dzial (
 id int auto_increment primary key,
@@ -62,7 +62,7 @@ update pracownik set pensja = 7000.00 where id = 2;
 update pracownik set pensja = 5000.50 where id = 3;
 ```
 
-**zadanie 7
+** zadanie 7
 
 ```sql
 ALTER TABLE dzial RENAME COLUMN nazwa TO nazwa_dzialu;
@@ -70,7 +70,7 @@ ALTER TABLE dzial RENAME COLUMN id TO id_dzialu;
 ALTER TABLE pracownik RENAME COLUMN id TO id_pracownika;
 ```
 
-**zadanie 8
+** zadanie 8
 
 ```sql
 DELETE FROM pracownik WHERE id_pracownika = 3;
@@ -78,7 +78,7 @@ DELETE FROM pracownik WHERE id_pracownika = 3;
 
 ## Rozwiązania zadań lab 1, część 2
 
-**zadanie 1
+** zadanie 1
 
 ```sql
 ALTER TABLE pracownik ADD COLUMN dzial INT;
@@ -91,7 +91,7 @@ DELETE FROM dzial WHERE id_dzialu = 1;
 `dzial` (`id_dzialu`) ON DELETE RESTRICT)
 
 ```
-**zadanie 2
+** zadanie 2
 
 ```sql
 create table stanowisko (
@@ -102,7 +102,7 @@ insert into stanowisko values(1, 'sprzedawca');
 insert into stanowisko values(2, 'księgowa');
 insert into stanowisko values(3, 'magazynier');
 ```
-**zadanie 3
+** zadanie 3
 
 ```sql
 alter table pracownik add stanowisko_temp int;
@@ -115,7 +115,7 @@ update pracownik set stanowisko_temp = 3 where stanowisko = 'magazynier';
 alter table pracownik drop column stanowisko;
 alter table pracownik rename column stanowisko_temp to stanowisko;
 ```
-**zadanie 4
+** zadanie 4
 ```sql
 alter table pracownik drop foreign key pracownik_ibfk_1;
 alter table pracownik add foreign key (dzial) references dzial(id_dzialu) on delete set null;
@@ -123,18 +123,18 @@ alter table pracownik add foreign key (dzial) references dzial(id_dzialu) on del
 
 ## Rozwiązania zadań lab 2, część 1
 
-**zadanie 1
+** zadanie 1
 ```sql
 SELECT nazwisko, imie FROM pracownik ORDER BY nazwisko;
 ```
 
-**zadanie 2
+** zadanie 2
 ```
 SELECT imie, nazwisko, pensja FROM pracownik WHERE YEAR(data_urodzenia) > 1979;
 ```
 
 
-**zadanie 3
+** zadanie 3
 ```
 
 ```
