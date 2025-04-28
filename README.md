@@ -83,5 +83,9 @@ DELETE FROM pracownik WHERE id_pracownika = 3;
 ```sql
 
 ```
+**zadanie 2
 
+```sql
+
+```
 
