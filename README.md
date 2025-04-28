@@ -106,8 +106,7 @@ insert into stanowisko values(3, 'magazynier');
 
 ```sql
 alter table pracownik add stanowisko_temp int;
-alter table pracownik add foreign key (stanowisko_temp) references 
-stanowisko(id_stanowiska);
+alter table pracownik add foreign key (stanowisko_temp) references stanowisko(id_stanowiska);
 
 update pracownik set stanowisko_temp = 1 where stanowisko = 'sprzedawca';
 update pracownik set stanowisko_temp = 2 where stanowisko = 'księgowa';
