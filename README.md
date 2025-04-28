@@ -129,41 +129,41 @@ SELECT nazwisko, imie FROM pracownik ORDER BY nazwisko;
 ```
 
 **zadanie 2**
-```
+```sql
 SELECT imie, nazwisko, pensja FROM pracownik WHERE YEAR(data_urodzenia) > 1979;
 ```
 
 
 **zadanie 3**
-```
+```sql
 SELECT * FROM pracownik WHERE pensja BETWEEN 3500 AND 5000;
 ```
 **zadanie 4**
-```
+```sql
 SELECT * FROM stan_magazynowy WHERE ilosc > 10;
 ```
 
 **zadanie 5**
-```
+```sql
 SELECT * FROM towar WHERE nazwa_towaru LIKE 'A%' OR nazwa_towaru LIKE 'B%' OR nazwa_towaru LIKE 'C%';
 ```
 
 **zadanie 6**
-```
+```sql
 SELECT * FROM klient WHERE czy_firma = 0;
 ```
 
 **zadanie 7**
-```
+```sql
 SELECT * FROM zamowienie ORDER BY data_zamowienia DESC LIMIT 10;
 ```
 
 **zadanie 8**
-```
+```sql
 SELECT imie, nazwisko, pensja FROM pracownik ORDER BY pensja LIMIT 5;
 ```
 **zadanie 9**
-```
+```sql
 SELECT * FROM towar WHERE nazwa_towaru NOT LIKE '%a%' ORDER BY cena_zakupu DESC LIMIT 10;
 ```
 
