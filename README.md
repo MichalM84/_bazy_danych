@@ -94,6 +94,16 @@ DELETE FROM dzial WHERE id_dzialu = 1;
 **zadanie 2
 
 ```sql
+create table stanowisko (
+id_stanowiska int primary key,
+nazwa_stanowiska varchar(100)
+);
+insert into stanowisko values(1, 'sprzedawca');
+insert into stanowisko values(2, 'księgowa');
+insert into stanowisko values(3, 'magazynier');
+```
+**zadanie 3
+
+```sql
 
 ```
-
