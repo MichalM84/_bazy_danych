@@ -136,9 +136,12 @@ SELECT imie, nazwisko, pensja FROM pracownik WHERE YEAR(data_urodzenia) > 1979;
 
 **zadanie 3**
 ```
-
+SELECT * FROM pracownik WHERE pensja BETWEEN 3500 AND 5000;
+```
+**zadanie 4**
 ```
 
+```
 
 
 
