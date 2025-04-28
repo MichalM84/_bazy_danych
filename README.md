@@ -140,8 +140,39 @@ SELECT * FROM pracownik WHERE pensja BETWEEN 3500 AND 5000;
 ```
 **zadanie 4**
 ```
-
+SELECT * FROM stan_magazynowy WHERE ilosc > 10;
 ```
+
+**zadanie 5**
+```
+SELECT * FROM towar WHERE nazwa_towaru LIKE 'A%' OR nazwa_towaru LIKE 'B%' OR nazwa_towaru LIKE 'C%';
+```
+
+**zadanie 6**
+```
+SELECT * FROM klient WHERE czy_firma = 0;
+```
+
+**zadanie 7**
+```
+SELECT * FROM zamowienie ORDER BY data_zamowienia DESC LIMIT 10;
+```
+
+**zadanie 8**
+```
+SELECT imie, nazwisko, pensja FROM pracownik ORDER BY pensja LIMIT 5;
+```
+**zadanie 9**
+```
+SELECT * FROM towar WHERE nazwa_towaru NOT LIKE '%a%' ORDER BY cena_zakupu DESC LIMIT 10;
+```
+
+
+
+
+
+
+
 
 
 
