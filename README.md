@@ -85,7 +85,10 @@ ALTER TABLE pracownik ADD COLUMN dzial INT;
 ALTER TABLE pracownik ADD FOREIGN KEY (dzial) REFERENCES dzial(id_dzialu) ON DELETE RESTRICT;
 UPDATE pracownik SET dzial = 1 WHERE id_pracownika = 1;
 UPDATE pracownik SET dzial = 2 WHERE id_pracownika = 2;
-DELETE FROM dzial WHERE id_dzialu = 1;  ==> Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`is_malewiczm`.`pracownik`, CONSTRAINT `pracownik_ibfk_1` FOREIGN KEY (`dzial`) REFERENCES `dzial` (`id_dzialu`) ON DELETE RESTRICT)
+DELETE FROM dzial WHERE id_dzialu = 1;
+ ==> Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails
+ (`is_malewiczm`.`pracownik`, CONSTRAINT `pracownik_ibfk_1` FOREIGN KEY (`dzial`) REFERENCES
+`dzial` (`id_dzialu`) ON DELETE RESTRICT)
 
 ```
 **zadanie 2
