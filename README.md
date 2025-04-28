@@ -105,5 +105,20 @@ insert into stanowisko values(3, 'magazynier');
 **zadanie 3
 
 ```sql
+alter table pracownik add stanowisko_temp int;
+alter table pracownik add foreign key (stanowisko_temp) references 
+stanowisko(id_stanowiska);
 
+update pracownik set stanowisko_temp = 1 where stanowisko = 'sprzedawca';
+update pracownik set stanowisko_temp = 2 where stanowisko = 'księgowa';
+update pracownik set stanowisko_temp = 3 where stanowisko = 'magazynier';
+
+alter table pracownik drop column stanowisko;
+alter table pracownik rename column stanowisko_temp to stanowisko;
+```
+**zadanie 4
+
+```sql
+alter table pracownik drop foreign key pracownik_ibfk_1;
+alter table pracownik add foreign key (dzial) references dzial(id_dzialu) on delete set null;
 ```
