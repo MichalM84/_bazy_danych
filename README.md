@@ -116,8 +116,31 @@ alter table pracownik drop column stanowisko;
 alter table pracownik rename column stanowisko_temp to stanowisko;
 ```
 **zadanie 4
-
 ```sql
 alter table pracownik drop foreign key pracownik_ibfk_1;
 alter table pracownik add foreign key (dzial) references dzial(id_dzialu) on delete set null;
 ```
+
+## Rozwiązania zadań lab 2, część 1
+
+**zadanie 1
+```sql
+SELECT nazwisko, imie FROM pracownik ORDER BY nazwisko;
+```
+
+**zadanie 2
+```
+SELECT imie, nazwisko, pensja FROM pracownik WHERE YEAR(data_urodzenia) > 1979;
+```
+
+
+**zadanie 3
+```
+
+```
+
+
+
+
+
+
