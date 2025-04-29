@@ -166,13 +166,37 @@ SELECT imie, nazwisko, pensja FROM pracownik ORDER BY pensja LIMIT 5;
 ```sql
 SELECT * FROM towar WHERE nazwa_towaru NOT LIKE '%a%' ORDER BY cena_zakupu DESC LIMIT 10;
 ```
+**zadanie 10**
+```sql
+select 
+towar.id_towaru,
+towar.nazwa_towaru,
+jednostka_miary.nazwa
+from towar
+inner join stan_magazynowy
+on towar.id_towaru = stan_magazynowy.towar
+inner join jednostka_miary
+on stan_magazynowy.jm = jednostka_miary.id_jednostki
+where jednostka_miary.nazwa = 'szt';
+```
+**zadanie 11**
+```sql
+create table is_malewiczm.towary_powyzej_100 AS
+select *
+from __firma_zti.towar
+where cena_zakupu >= 100;
+```
 
+**zadanie 12**
+```sql
+create table is_malewiczm.pracownik_50_plus
+like __firma_zti.pracownik;
 
-
-
-
-
-
+insert into is_malewiczm.pracownik_50_plus
+select *
+from __firma_zti.pracownik
+where timestampdiff (year, data_urodzenia, CURDATE()) >= 50;
+```
 
 
 
