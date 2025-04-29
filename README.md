@@ -20,7 +20,7 @@ stanowisko enum('sprzedawca', 'magazynier', 'księgowa')
 **zadanie 2**
 ```sql
 #zadanie 2
-INSERT INTO pracownik values
+insert into pracownik values
 (default, 'Jan', 'Kowalski', '1990-10-10', 'magazynier'),
 (default, 'Tomasz', 'Nowak', '1984-11-11', 'sprzedawca'),
 (default, 'Joanna', 'Machalica', '1985-05-28', 'księgowa');
@@ -198,7 +198,90 @@ from __firma_zti.pracownik
 where timestampdiff (year, data_urodzenia, CURDATE()) >= 50;
 ```
 
+## Rozwiązania zadań lab 2, część 2
+
+**zadanie 1**
+```sql
+select p.imie, p.nazwisko, d.nazwa
+from pracownik p
+join dzial d on p.dzial = d.id_dzialu;
+```
+**zadanie 2**
+```sql
+select t.nazwa_towaru, k.nazwa_kategori, sm.ilosc
+from towar t
+join kategoria k on t.kategoria = k.id_kategori
+join stan_magazynowy sm on t.id_towaru = sm.towar
+order by sm.ilosc desc;
+```
+
+**zadanie 3**
+```sql
+select z.*, sz.nazwa_statusu_zamowienia
+from zamowienie z
+join status_zamowienia sz on z.status_zamowienia = sz.id_statusu_zamowienia
+where sz.id_statusu_zamowienia = 6;
+```
+
+**zadanie 4**
+```sql
+select *
+from klient k
+join adres_klienta ak on k.id_klienta = ak.klient
+join typ_adresu ta on ak.typ_adresu = ta.id_typu
+where ta.nazwa = 'podstawowy' and ak.miejscowosc = 'Olsztyn';
+```
 
 
+**zadanie 5**
+```sql
+select jm.nazwa
+from jednostka_miary jm
+left join stan_magazynowy sm on jm.id_jednostki = sm.jm
+where sm.jm is null;
+```
 
+**zadanie 6**
+```sql
+SELECT z.numer_zamowienia, t.nazwa_towaru, pz.ilosc, pz.cena
+FROM zamowienie z
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+JOIN towar t ON pz.towar = t.id_towaru
+WHERE YEAR(z.data_zamowienia) = 2018;
+```
 
+**zadanie 7**
+```sql
+CREATE TABLE is_malewiczm.towary_full_info AS 
+SELECT t.nazwa_towaru, t.cena_zakupu, k.nazwa_kategori AS kategoria, sm.ilosc, jm.nazwa AS jednostka_miary
+FROM towar t
+JOIN kategoria k ON t.kategoria = k.id_kategori
+JOIN stan_magazynowy sm ON t.id_towaru = sm.towar
+JOIN jednostka_miary jm ON sm.jm = jm.id_jednostki;
+```
+**zadanie 8**
+```sql
+select pz.*, z.data_zamowienia
+from pozycja_zamowienia pz
+join (
+    select id_zamowienia, data_zamowienia
+    from zamowienie
+    order by data_zamowienia asc
+    limit 5
+) as z on pz.zamowienie = z.id_zamowienia
+order by z.data_zamowienia asc, pz.zamowienie;
+```
+**zadanie 9**
+```sql
+SELECT z.*
+FROM zamowienie z
+JOIN status_zamowienia sz ON z.status_zamowienia = sz.id_statusu_zamowienia
+WHERE sz.nazwa_statusu_zamowienia != 'zrealizowane';
+```
+**zadanie 10**
+```sql
+SELECT *
+FROM adres_klienta
+WHERE kod NOT REGEXP '^[0-9]{2}-[0-9]{3}';
+```
+## Rozwiązania zadań lab 3, część 1
