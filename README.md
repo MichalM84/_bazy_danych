@@ -285,3 +285,57 @@ FROM adres_klienta
 WHERE kod NOT REGEXP '^[0-9]{2}-[0-9]{3}';
 ```
 ## Rozwiązania zadań lab 3, część 1
+
+**zadanie 1**
+
+```sql
+SELECT imie, nazwisko, YEAR(data_urodzenia) AS rok_urodzenia
+FROM pracownik;
+```
+
+**zadanie 2**
+
+```sql
+SELECT imie, nazwisko, (YEAR(CURDATE()) - YEAR(data_urodzenia)) AS wiek
+FROM pracownik;
+```
+
+**zadanie 3**
+
+```sql
+SELECT d.nazwa, COUNT(p.id_pracownika) AS liczba_pracownikow
+FROM dzial d
+LEFT JOIN pracownik p ON d.id_dzialu = p.dzial
+GROUP BY d.nazwa;
+```
+
+**zadanie 4**
+```sql
+select k.nazwa_kategori, count(t.nazwa_towaru) as liczba_produktow
+from kategoria k 
+inner join towar t on t.kategoria=k.id_kategori 
+group by k.id_kategori;
+```
+
+
+**zadanie 5**
+```sql
+SELECT k.nazwa_kategori, GROUP_CONCAT(t.nazwa_towaru ORDER BY t.nazwa_towaru SEPARATOR ', ') AS produkty
+FROM kategoria k
+LEFT JOIN towar t ON k.id_kategori = t.kategoria
+GROUP BY k.nazwa_kategori;
+```
+
+**zadanie 6**
+```sql
+SELECT ROUND(AVG(pensja), 2) AS srednia_pensja
+FROM pracownik;
+```
+
+**zadanie 7** 
+```sql
+SELECT ROUND(AVG(pensja), 2) AS srednia_pensja
+FROM pracownik
+WHERE TIMESTAMPDIFF(YEAR, data_zatrudnienia, CURDATE()) >= 10;
+#dałem 10 lat dla sprawdzenia bo wszyscy pracują więcej niż 5 lat i wychodzi taki sam wynik jak w zadaniu 6
+```
