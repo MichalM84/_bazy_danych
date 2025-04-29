@@ -339,3 +339,127 @@ FROM pracownik
 WHERE TIMESTAMPDIFF(YEAR, data_zatrudnienia, CURDATE()) >= 10;
 #dałem 10 lat dla sprawdzenia bo wszyscy pracują więcej niż 5 lat i wychodzi taki sam wynik jak w zadaniu 6
 ```
+
+
+**zadanie 8** 
+```sql
+SELECT t.nazwa_towaru, SUM(pz.ilosc) AS ilosc_sprzedana
+FROM pozycja_zamowienia pz
+JOIN towar t ON pz.towar = t.id_towaru
+GROUP BY t.nazwa_towaru
+ORDER BY ilosc_sprzedana DESC
+LIMIT 10;
+```
+
+
+
+**zadanie 9** 
+```sql
+select z.numer_zamowienia, sum(pz.ilosc * pz.cena) as wartosc_zamowienia
+from zamowienie z
+inner join pozycja_zamowienia pz on z.id_zamowienia=pz.zamowienie 
+where year(z.data_zamowienia) = 2017 and quarter(z.data_zamowienia) = 1 
+group by z.id_zamowienia;
+```
+
+**zadanie 10** 
+```sql
+SELECT p.imie, p.nazwisko, SUM(pz.ilosc * pz.cena) AS suma_wartosci_zamowien
+FROM pracownik p
+JOIN zamowienie z ON p.id_pracownika = z.pracownik_id_pracownika
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+GROUP BY p.imie, p.nazwisko
+ORDER BY suma_wartosci_zamowien DESC;
+```
+
+## Rozwiązania zadań lab 3, część 2
+
+**zadanie 1** 
+```sql
+SELECT d.nazwa, MIN(p.pensja) AS min_pensja, MAX(p.pensja) AS max_pensja, ROUND(AVG(p.pensja), 2) AS srednia_pensja
+FROM dzial d
+JOIN pracownik p ON d.id_dzialu = p.dzial
+GROUP BY d.nazwa;
+```
+
+**zadanie 2** 
+```sql
+SELECT k.pelna_nazwa, SUM(pz.ilosc * pz.cena) AS wartosc_zamowienia
+FROM zamowienie z
+JOIN klient k ON z.klient = k.id_klienta
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+GROUP BY k.pelna_nazwa
+ORDER BY wartosc_zamowienia DESC
+LIMIT 10;
+```
+
+
+**zadanie 3** 
+```sql
+SELECT YEAR(z.data_zamowienia) AS rok, SUM(pz.ilosc * pz.cena) AS przychod
+FROM zamowienie z
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+GROUP BY rok
+ORDER BY przychod DESC;
+```
+
+
+**zadanie 4** 
+```sql
+SELECT SUM(pz.ilosc * pz.cena) AS suma_anulowanych
+FROM zamowienie z
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+WHERE z.status_zamowienia = (SELECT id_statusu_zamowienia FROM status_zamowienia WHERE nazwa_statusu_zamowienia = 'Anulowane');
+```
+
+**zadanie 5** 
+```sql
+SELECT a.miejscowosc, COUNT(z.id_zamowienia) AS liczba_zamowien, SUM(pz.ilosc * pz.cena) AS suma_zamowien
+FROM zamowienie z
+JOIN klient k ON z.klient = k.id_klienta
+JOIN adres_klienta a ON k.id_klienta = a.klient
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+GROUP BY a.miejscowosc;
+```
+
+**zadanie 6** 
+```sql
+SELECT SUM(pz.ilosc * pz.cena) AS dochod
+FROM zamowienie z
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+WHERE z.status_zamowienia = (SELECT id_statusu_zamowienia FROM status_zamowienia WHERE nazwa_statusu_zamowienia = 'Zrealizowane');
+```
+
+
+**zadanie 7** 
+```sql
+SELECT YEAR(z.data_zamowienia) AS rok, SUM((pz.ilosc * pz.cena) - (pz.ilosc * t.cena_zakupu)) AS dochod
+FROM zamowienie z
+JOIN pozycja_zamowienia pz ON z.id_zamowienia = pz.zamowienie
+JOIN towar t ON pz.towar = t.id_towaru
+GROUP BY rok
+ORDER BY rok;
+```
+**zadanie 8** 
+```sql
+SELECT k.nazwa_kategori, SUM(sm.ilosc * t.cena_zakupu) AS wartosc_magazynowa
+FROM towar t
+JOIN kategoria k ON t.kategoria = k.id_kategori
+JOIN stan_magazynowy sm ON t.id_towaru = sm.towar
+GROUP BY k.nazwa_kategori;
+```
+
+
+**zadanie 9** 
+```sql
+SELECT MONTHNAME(data_urodzenia) AS miesiac, COUNT(*) AS liczba_pracownikow
+FROM pracownik
+GROUP BY MONTHNAME(data_urodzenia), MONTH(data_urodzenia)
+ORDER BY MONTH (data_urodzenia);
+```
+
+**zadanie 10** 
+```sql
+
+```
+
