@@ -460,6 +460,8 @@ ORDER BY MONTH (data_urodzenia);
 
 **zadanie 10** 
 ```sql
-
+SELECT p.imie, p.nazwisko, SUM(DATEDIFF(CURDATE(), p.data_zatrudnienia) * (p.pensja / 30)) AS koszt_pracownika
+FROM pracownik p
+GROUP BY p.imie, p.nazwisko;
 ```
 
